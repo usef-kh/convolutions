@@ -4,8 +4,8 @@
 TARGET1 = conv2d
 C_OBJS1 = conv2d.o
 
-TARGET1 = timing
-C_OBJS1 = timing.o
+TARGET2 = timing
+C_OBJS2 = timing.o
 
 
 ALL_SOURCES = Makefile $(C_SOURCES) $(MY_INCLUDES)
@@ -16,6 +16,8 @@ CCX = g++
 CXXFLAGS = -g -Wall
 #-std=c99
 #============================================================
+conv2d: $(TARGET1)
+timing: $(TARGET2)
 all: $(TARGET1) $(TARGET2) $(TARGET3) $(TARGET4)
 
 .o:.cpp	$(MY_INCLUDES)
