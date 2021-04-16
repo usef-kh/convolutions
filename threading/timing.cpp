@@ -10,7 +10,7 @@ int main() {
     
     std::chrono::time_point<std::chrono::steady_clock> start_time, end_time;
     
-    string filename = "conv2d_timing_openACC.csv";
+    string filename = "conv2d_timing_openMP.csv";
     
     ofstream file;
     file << setprecision(20);

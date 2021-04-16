@@ -1,4 +1,5 @@
 #pragma once
+#include <thread>
 
 void conv2d(double ** output, double ** input, double ** kernel, int N, int K);
 void init(double ** res, double ** image, double ** kernel, int n, int k);
@@ -6,19 +7,18 @@ void init(double ** res, double ** image, double ** kernel, int n, int k);
 void conv2d(double ** output, double ** input, double ** kernel, int N, int K)
 {
 	// Fill output matrix: rows and columns are i and j respectively
-	#pragma acc init
-    #pragma acc loop independent
+	
     for (int i = 0; i < N - K; i++)
 	{
-		#pragma acc loop independent
+		// #pragma acc loop independent
         for (int j = 0; j <  N - K; j++)
 		{
 		    double convolute = 0;
 			// Kernel rows and columns are k and l respectively
-			#pragma acc loop independent
+			// #pragma acc loop independent
             for (int k = 0; k < K; k++)
 			{
-				#pragma acc loop independent
+				// #pragma acc loop independent
                 for (int l = 0; l < K; l++)
 				{
 					// Convolute here.

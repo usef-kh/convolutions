@@ -6,7 +6,6 @@ void init(double ** res, double ** image, double ** kernel, int n, int k);
 
 void conv2d(double ** output, double ** input, double ** kernel, int N, int K)
 {
-
 	// Fill output matrix: rows and columns are i and j respectively
 	for (int i = 0; i < N - K; i++)
 	{
@@ -31,6 +30,8 @@ void conv2d(double ** output, double ** input, double ** kernel, int N, int K)
 
 void init(double ** output, double ** image, double ** kernel, int n, int k){
     
+    int z = n - k;
+
     for (int i = 0; i < k; i++){
         kernel[i] = new double[k];
     }
@@ -39,8 +40,8 @@ void init(double ** output, double ** image, double ** kernel, int n, int k){
         image[i] = new double[n];
     }
 
-    for(int i = 0; i < n; i++)  {
-        output[i] = new double[n];
+    for(int i = 0; i < z; i++)  {
+        output[i] = new double[z];
     }
 
      //  initialize 2D Kernel
@@ -66,9 +67,9 @@ void init(double ** output, double ** image, double ** kernel, int n, int k){
         }
     }
     
-    for (int y = 0; y < n; y++) {
-        for (int x = 0; x < n; x++) {
-
+    //  initialize 2D output
+    for (int y = 0; y < z; y++) {
+        for (int x = 0; x < z; x++) {
             output[x][y] = 0.0;
         }
     }

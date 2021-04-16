@@ -10,7 +10,7 @@ int main() {
     
     std::chrono::time_point<std::chrono::steady_clock> start_time, end_time;
     
-    string filename = "conv2d_timing_openACC.csv";
+    string filename = "conv2d_timing_openMP.csv";
     
     ofstream file;
     file << setprecision(20);
@@ -30,6 +30,9 @@ int main() {
 
             init(output, image, kernel, n, k);
             
+            int thread_id[16] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+            
+
             start_time = std::chrono::steady_clock::now();      // start time
             conv2d(output, image, kernel, n, k);
             end_time = std::chrono::steady_clock::now();        // end time
