@@ -13,7 +13,7 @@ ALL_SOURCES = Makefile $(C_SOURCES) $(MY_INCLUDES)
 DATA_FILES =
 
 CCX = g++
-CXXFLAGS = -g -Wall -fopenmp
+CXXFLAGS = -g -Wall -fopenmp -pthread
 #-std=c99
 #============================================================
 conv2d: $(TARGET1)

@@ -1,10 +1,10 @@
-#include <iostream>
 #include "conv2d.h"
+#include <vector>
 using namespace std;
 
 int main() {
     
-    int k = 4, n = 7;
+    int k = 6, n = 12;
     int z = n - k;
     double ** kernel = new double * [k];
     double ** image = new double * [n];
@@ -36,8 +36,16 @@ int main() {
         cout << endl;
     }
     
-    conv2d(output, image, kernel, n, k);
-    
+    int n_threads = z;
+    std::vector<std::thread> thread_array;
+    for (int i = 0; i < n_threads; i++) {
+        thread_array.push_back(thread(conv2d, output, image, kernel, n, k, i));
+    }
+
+    for (int i = 0; i < n_threads; i++) {
+        thread_array[i].join();
+    }
+   
     cout << "Kernel" << endl;
     for (int y = 0; y < k; y++) {
         for (int x = 0; x < k; x++) {

@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iomanip>
 #include "conv2d.h"
+#include <vector>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ int main() {
     cout << "n\tk\tTime\n";
 
     for (int n = 128; n <= 1024; n *=2) {
-        for (int k = 4; k <= n/4; k *=2) {
+        for (int k = 4; k <= 32; k *=2) {
 
             int z = n - k;
 
@@ -31,7 +32,19 @@ int main() {
             init(output, image, kernel, n, k);
             
             start_time = std::chrono::steady_clock::now();      // start time
-            conv2d(output, image, kernel, n, k);
+            
+
+            int n_threads = z;
+            std::vector<std::thread> thread_array;
+            for (int i = 0; i < n_threads; i++) {
+                thread_array.push_back(thread(conv2d, output, image, kernel, n, k, i));
+            }
+
+            for (int i = 0; i < n_threads; i++) {
+                thread_array[i].join();
+            }
+                
+
             end_time = std::chrono::steady_clock::now();        // end time
             
             // end - start

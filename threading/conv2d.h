@@ -1,25 +1,22 @@
 #pragma once
 #include <thread>
+#include <iostream>
 
-void conv2d(double ** output, double ** input, double ** kernel, int N, int K);
+void conv2d(double ** output, double ** input, double ** kernel, int N, int K, int i);
 void init(double ** res, double ** image, double ** kernel, int n, int k);
 
-void conv2d(double ** output, double ** input, double ** kernel, int N, int K)
+void conv2d(double ** output, double ** input, double ** kernel, int N, int K, int i)
 {
 	// Fill output matrix: rows and columns are i and j respectively
-	
-    for (int i = 0; i < N - K; i++)
-	{
-		// #pragma acc loop independent
-        for (int j = 0; j <  N - K; j++)
+	// for (int i = 0; i < N - K; i++)
+	// {
+		for (int j = 0; j <  N - K; j++)
 		{
 		    double convolute = 0;
 			// Kernel rows and columns are k and l respectively
-			// #pragma acc loop independent
-            for (int k = 0; k < K; k++)
+			for (int k = 0; k < K; k++)
 			{
-				// #pragma acc loop independent
-                for (int l = 0; l < K; l++)
+				for (int l = 0; l < K; l++)
 				{
 					// Convolute here.
 					convolute += kernel[k][l] * input[i + k][j + l];
@@ -27,8 +24,30 @@ void conv2d(double ** output, double ** input, double ** kernel, int N, int K)
 			}
 			output[i][j] = convolute; // Add result to output matrix.
 		}
-	}
+	// }
 }
+
+// void conv2d(double ** output, double ** input, double ** kernel, int N, int K, int thread_id)
+// {
+// 	// Fill output matrix: rows and columns are i and j respectively
+//     int i = thread_id % (N -K);
+//     int j = thread_id / (N -K);
+
+//     double convolute = 0;
+//     // Kernel rows and columns are k and l respectively
+//     // #pragma acc loop independent
+//     for (int k = 0; k < K; k++)
+//     {
+//         // #pragma acc loop independent
+//         for (int l = 0; l < K; l++)
+//         {
+//             // Convolute here.
+//             convolute += kernel[k][l] * input[i + k][j + l];
+//         }
+//     }
+//     output[i][j] = convolute; // Add result to output matrix.
+
+// }
 
 void init(double ** output, double ** image, double ** kernel, int n, int k){
     

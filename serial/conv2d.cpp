@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
     
-    int k = 4, n = 7;
+    int k = 6, n = 12;
     int z = n - k;
     double ** kernel = new double * [k];
     double ** image = new double * [n];
@@ -35,7 +35,8 @@ int main() {
         }
         cout << endl;
     }
-    
+
+
     conv2d(output, image, kernel, n, k);
     
     cout << "Kernel" << endl;
