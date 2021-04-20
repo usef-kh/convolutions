@@ -7,7 +7,6 @@ C_OBJS1 = conv2d.o
 TARGET2 = timing
 C_OBJS2 = timing.o
 
-
 ALL_SOURCES = Makefile $(C_SOURCES) $(MY_INCLUDES)
 
 DATA_FILES =
@@ -17,7 +16,9 @@ CXXFLAGS = -g -Wall
 #-std=c99
 #============================================================
 conv2d: $(TARGET1)
+
 timing: $(TARGET2)
+
 all: $(TARGET1) $(TARGET2) $(TARGET3) $(TARGET4)
 
 .o:.cpp	$(MY_INCLUDES)
@@ -43,7 +44,7 @@ $(TARGET5) :   $(C_OBJS5)
 
 
 clean:
-	rm -f $(TARGET1) $(TARGET2) $(TARGET3) $(TARGET4) $(TARGET5) $(C_OBJS1) $(C_OBJS2) $(C_OBJS3) $(C_OBJS4) $(C_OBJS5) *~
+	rm -f $(TARGET1) $(TARGET2) $(TARGET3) $(TARGET4) $(TARGET5) $(C_OBJS1) $(C_OBJS2) $(C_OBJS3) $(C_OBJS4) $(C_OBJS5) *.csv *~
 
 tar: $(ALL_SOURCES) $(DATA_FILES)
 	tar cvf HW4_code.tar $(ALL_SOURCES)  $(DATA_FILES)

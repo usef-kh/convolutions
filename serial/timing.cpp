@@ -19,8 +19,8 @@ int main() {
     file << "n,k,Time (sec)\n";    
     cout << "n\tk\tTime\n";
 
-    for (int n = 128; n <= 1024; n *=2) {
-        for (int k = 4; k <= n/4; k *=2) {
+    for (int n = 128; n <= 4096; n *= 2) {
+        for (int k = 3; k <= 20; k += 2) {
 
             int z = n - k;
 

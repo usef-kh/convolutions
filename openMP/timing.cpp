@@ -19,8 +19,8 @@ int main() {
     file << "n,k,Time (sec)\n";    
     cout << "n\tk\tTime\n";
 
-    for (int n = 128; n <= 1024; n *=2) {
-        for (int k = 4; k <= n/4; k *=2) {
+    for (int n = 128; n <= 4096; n *= 2) {
+        for (int k = 3; k <= 20; k += 2) {
 
             int z = n - k;
 
@@ -30,9 +30,6 @@ int main() {
 
             init(output, image, kernel, n, k);
             
-            int thread_id[16] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-            
-
             start_time = std::chrono::steady_clock::now();      // start time
             conv2d(output, image, kernel, n, k);
             end_time = std::chrono::steady_clock::now();        // end time

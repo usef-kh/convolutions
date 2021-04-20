@@ -1,3 +1,5 @@
+#include <omp.h>
+
 #pragma once
 
 void conv2d(double ** output, double ** input, double ** kernel, int N, int K);
@@ -6,6 +8,10 @@ void init(double ** res, double ** image, double ** kernel, int n, int k);
 void conv2d(double ** output, double ** input, double ** kernel, int N, int K)
 {
 	// Fill output matrix: rows and columns are i and j respectively
+	omp_set_dynamic(0);     // Explicitly disable dynamic teams
+
+	omp_set_num_threads(32);
+
 	#pragma omp parallel for
     for (int i = 0; i < N - K; i++)
 	{

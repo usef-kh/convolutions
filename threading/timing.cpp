@@ -11,7 +11,7 @@ int main() {
     
     std::chrono::time_point<std::chrono::steady_clock> start_time, end_time;
     
-    string filename = "conv2d_timing_openMP.csv";
+    string filename = "conv2d_timing_threading.csv";
     
     ofstream file;
     file << setprecision(20);
@@ -20,8 +20,8 @@ int main() {
     file << "n,k,Time (sec)\n";    
     cout << "n\tk\tTime\n";
 
-    for (int n = 128; n <= 1024; n *=2) {
-        for (int k = 4; k <= 32; k *=2) {
+    for (int n = 128; n <= 4096; n *= 2) {
+        for (int k = 3; k <= 20; k += 2) {
 
             int z = n - k;
 

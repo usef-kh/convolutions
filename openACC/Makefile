@@ -25,4 +25,4 @@ timing: timing.cpp Makefile
 .PHONY: clean 
 
 clean:
-	rm -f timing conv2d *.o
+	rm -f timing conv2d *.csv *.o
