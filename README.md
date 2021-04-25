@@ -9,3 +9,6 @@ The current available implementations here are:
 - Threading 
 
 Each of these implementations and their makefiles can be found in their respective folders
+
+## Sample Convolutions
+![sample convolutions](images/convs.JPG)
