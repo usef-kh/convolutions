@@ -1,5 +1,10 @@
 # Convolutions
 
+## Important links
+- [Presentation](https://docs.google.com/presentation/d/1sHktguavhx-a1x_DG-631PH3XLJTdArvoRf-VFoI7yA/edit?usp=sharing)
+- [Report]()
+
+## Overview
 This project experiments with running a 2D convolution in a variety of ways. 
 
 The current available implementations here are:
@@ -25,3 +30,10 @@ The best performance was acheived by OpenMP. At high values, threading comes in 
 ![timing1](images/timing1.jpeg)
 
 ![timing2](images/timing2.jpeg)
+
+## Contact
+- Yousif Khaireddin ykh@bu.edu
+- Zhuofa (Marco) Chen zfchen@bu.edu
+- William Martin wmarti@bu.edu
+- Ihor Leshchyshyn ihorlesh@bu.edu
+- 
