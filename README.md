@@ -36,4 +36,3 @@ The best performance was acheived by OpenMP. At high values, threading comes in 
 - Zhuofa (Marco) Chen zfchen@bu.edu
 - William Martin wmarti@bu.edu
 - Ihor Leshchyshyn ihorlesh@bu.edu
-- 
