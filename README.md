@@ -20,7 +20,7 @@ The following 2 plots benchmark the performance of each implementation and show 
 As either of these parameters increases, the time complexity increases, this makes sense since the convolution will be required to do a larger computation at each step.
 
 Next, it is clear that in any of the parallelized approaches, the time taken by the convolution decreases. This is logical since multiple convolutions are happening simultaneously. 
-The best performance was acheived by OpenMP, with threading comming in at a very close second.
+The best performance was acheived by OpenMP. At high values, threading comes in at a very close second.
 
 ![timing1](images/timing1.jpeg)
 
