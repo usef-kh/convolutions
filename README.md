@@ -2,7 +2,7 @@
 
 ## Important links
 - [Presentation](https://docs.google.com/presentation/d/1sHktguavhx-a1x_DG-631PH3XLJTdArvoRf-VFoI7yA/edit?usp=sharing)
-- [Report]()
+- [Report](https://docs.google.com/document/d/1XKjK6fjJK7JB3BGE7PIRLwxgfyT_tA-zxGrw6PfO5ZU/edit?usp=sharing)
 
 ## Overview
 This project experiments with running a 2D convolution in a variety of ways. 
